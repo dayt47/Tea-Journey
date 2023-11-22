@@ -18,14 +18,14 @@ async function login(ctx: any): Promise<void> {
     const user = await db.findOne({ username });
     if (!user) {
       ctx.status = 401;
-      ctx.body = { status: 401, message: 'User does not exist' };
+      ctx.body = { status: 401, message: 'Username or password wrong' }; //old: User does not exist
       return;
     }
 
     const token = await models.login(user.user_id, password, user.password);
     if (!token) {
       ctx.status = 401;
-      ctx.body = { status: 401, message: 'Invalid password' };
+      ctx.body = { status: 401, message: 'Username or password wrong' }; //old: Invalid password
       return;
     }
 

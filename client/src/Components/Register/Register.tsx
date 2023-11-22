@@ -15,16 +15,22 @@ const Register = () => {
     const username = formData.get('username') as string;
     const password = formData.get('password') as string;
 
-    const response = await registerUser(name, username, password);
+    e.currentTarget.reset();
 
-    if (response.status === 201) {
-      localStorage.setItem('accessToken', response.token);
-      setToken(response.token);
-      login();
-      navigate('/dashboard');
-    } else {
-      e.currentTarget.reset();
-      alert(response.message);
+    try {
+      const response = await registerUser(name, username, password);
+
+      if (response.status === 201) {
+        localStorage.setItem('accessToken', response.token);
+        setToken(response.token);
+        login();
+        navigate('/dashboard');
+      } else {
+        alert(response.message);
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      alert('An error occurred during registration.');
     }
   }
 

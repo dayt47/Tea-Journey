@@ -14,7 +14,7 @@ const Journey: React.FC = () => {
   const { authenticated, userInfo, setUserInfo } = useAuth();
 
   useEffect(() => {
-    console.log(userInfo);
+    // console.log(userInfo);
     if (!authenticated) {
       const journeyElement = document.querySelector('.Journey');
       if (journeyElement) {
@@ -34,8 +34,6 @@ const Journey: React.FC = () => {
     average_rating,
     joined_at,
   } = userInfo;
-
-  console.log('Badges:', badges);
 
   return (
     <div className="Frame-Journey">

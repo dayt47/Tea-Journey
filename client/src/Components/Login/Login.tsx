@@ -11,29 +11,33 @@ const Login: React.FC = () => {
   async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const username = (
-      e.currentTarget.elements.namedItem('username') as HTMLInputElement
-    )?.value;
-    const password = (
-      e.currentTarget.elements.namedItem('password') as HTMLInputElement
-    )?.value;
+    const usernameInput = e.currentTarget.elements.namedItem(
+      'username'
+    ) as HTMLInputElement;
+    const passwordInput = e.currentTarget.elements.namedItem(
+      'password'
+    ) as HTMLInputElement;
+
+    const username = usernameInput?.value;
+    const password = passwordInput?.value;
 
     if (username && password) {
-      const response = await validatePassword(username, password);
+      try {
+        const response = await validatePassword(username, password);
 
-      if (response.status === 200) {
-        localStorage.setItem('accessToken', response.token);
-        setToken(response.token);
-        login();
-        navigate('/dashboard');
-      } else {
-        (
-          e.currentTarget.elements.namedItem('username') as HTMLInputElement
-        ).value = '';
-        (
-          e.currentTarget.elements.namedItem('password') as HTMLInputElement
-        ).value = '';
-        alert(response.message);
+        if (response.status === 200) {
+          localStorage.setItem('accessToken', response.token);
+          setToken(response.token);
+          login();
+          navigate('/dashboard');
+        } else {
+          usernameInput.value = '';
+          passwordInput.value = '';
+          alert(response.message);
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+        alert('An error occurred during login.');
       }
     }
   }

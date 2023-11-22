@@ -82,7 +82,7 @@ const Profile: React.FC<ProfileProps> = ({ setIsProfileModalOpen }) => {
     }
   }
 
-  function reset() {
+  async function reset() {
     const shouldReset = window.confirm(
       'Are you sure you want to reset your journey?'
     );
@@ -90,13 +90,18 @@ const Profile: React.FC<ProfileProps> = ({ setIsProfileModalOpen }) => {
     if (shouldReset) {
       const token = localStorage.getItem('accessToken');
       if (token) {
-        resetJourney(token);
-        window.location.reload();
+        try {
+          await resetJourney(token);
+          window.location.reload();
+        } catch (error) {
+          console.error('Error resetting journey:', error);
+        }
       } else {
         console.error('No authentication token found');
       }
     }
   }
+
   return (
     <Modal
       isOpen={isModalOpen}
@@ -126,6 +131,7 @@ const Profile: React.FC<ProfileProps> = ({ setIsProfileModalOpen }) => {
                 type="password"
                 name="password"
                 placeholder="New password"
+                required
               />
             </div>
             <br />
