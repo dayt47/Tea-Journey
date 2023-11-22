@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@types/koa": "^2.13.11",
+    "@types/koa-bodyparser": "^4.3.12",
     "ts-node": "^10.9.1"
   }
 }
