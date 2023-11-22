@@ -40,17 +40,17 @@ const Register = () => {
         <h1>Register</h1>
         <div className="Name">
           <label htmlFor="name">Name:</label>
-          <input type="text" name="name" required={true} />
+          <input type="text" name="name" required={true} minLength={1} maxLength={40} />
         </div>
         <br />
         <div className="Username">
           <label htmlFor="username">Username:</label>
-          <input type="text" name="username" required={true} />
+          <input type="text" name="username" required={true} minLength={1} maxLength={40} />
         </div>
         <br />
         <div className="Password">
           <label htmlFor="password">Password:</label>
-          <input type="password" name="password" required={true} />
+          <input type="password" name="password" required={true} minLength={1} maxLength={40} />
         </div>
         <div className="Validate">
           <button type="submit">Register</button>
