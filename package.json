@@ -9,7 +9,7 @@
     "install-client": "cd client && npm install",
     "server": "cd server && nodemon index.js",
     "client": "cd client && npm start",
-    "test": "ts-jest"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
