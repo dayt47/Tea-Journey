@@ -1,7 +1,4 @@
 {
-  "scripts": {
-    "test": "jest "
-  },
   "dependencies": {
     "@koa/cors": "^4.0.0",
     "bcrypt": "^5.1.1",
@@ -11,8 +8,5 @@
     "koa-router": "^12.0.1",
     "mongodb": "^6.2.0",
     "uuid": "^9.0.1"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0"
   }
 }
