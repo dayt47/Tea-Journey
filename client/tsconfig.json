@@ -6,12 +6,12 @@
     "baseUrl": "src",
     "module": "ESNext",
     "moduleResolution": "node",
-    "types": ["koa", "jest"],
+    // "types": ["koa", "jest"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
-  }
+  },
   //   "include": ["./src/**/*", "./declarations.d.ts"],
   //   "exclude": ["node_modules"]
 }
