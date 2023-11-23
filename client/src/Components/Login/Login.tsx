@@ -48,12 +48,12 @@ const Login: React.FC = () => {
         <h1>Login</h1>
         <div className="Username">
           <label htmlFor="username">Username:</label>
-          <input type="text" name="username" required={true} />
+          <input type="text" id="username" name="username" required={true} />
         </div>
         <br />
         <div className="Password">
           <label htmlFor="password">Password:</label>
-          <input type="password" name="password" required={true} />
+          <input type="password" id="password" name="password" required={true} />
         </div>
         <div className="Validate">
           <button type="submit">Login</button>
