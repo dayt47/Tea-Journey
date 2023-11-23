@@ -15,6 +15,6 @@
 
     "skipLibCheck": true
   },
-  "include": ["./client/src/"],
+  "include": ["./client/src/**/*", "./server/**/*"],
   "files": ["./client/declarations.d.ts"]
 }
